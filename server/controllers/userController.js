@@ -28,7 +28,7 @@ const registerUser = async (req, res) => {
             expiresIn:'30d'
         });
 
-        return res.status(200).json({ "Welcome": email });
+        return res.status(200).json({ email, password,token });
     } catch (error) {
         console.error(error);
         return res.status(500).json({
@@ -42,7 +42,7 @@ const loginUser = async (req, res) => {
     try {
         const { username, email, password, profilePic } = req.body;
 
-        if (!username || !email || !password || !profilePic) {
+        if (!username || !email || !password ||!profilePic) {
             return res.status(400).json({ message: "Missing required fields" });
         }
 
@@ -60,7 +60,7 @@ const loginUser = async (req, res) => {
 
         const token = jwt.sign({ userId: user._id }, secretKey);
 
-        return res.status(201).json({ "token": token, "password": password });
+        return res.status(201).json({ "token": token, "password": password, "email":email, "username":username, "profilePic":profilePic });
     } catch (error) {
         console.error(error);
         return res.status(500).json({ message: "Internal server error" });

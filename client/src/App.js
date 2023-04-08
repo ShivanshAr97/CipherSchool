@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import Welcome from './components/Welcome';
-import Other from './components/Other';
+import { Route, Routes } from 'react-router-dom';
+import Main from './components/Main'
 import Navbar from './components/Navbar';
 import Login from './components/Login';
 import Register from './components/Register';
@@ -13,14 +13,16 @@ function App() {
   //     history.pushState("/")
   //   }
   // }, [history])
-  
+
   return (
     <>
-      <Navbar/>
-      <Login/>
-      <Register/>
-      <Welcome />
-      <Other />
+      <Navbar />
+      <Routes>
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/' element={<Main />} />
+      </Routes>
+
     </>
   );
 }

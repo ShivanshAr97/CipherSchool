@@ -25,6 +25,7 @@ const Login = () => {
             }, config)
 
             console.log(data);
+            setError("All good")
             localStorage.setItem("userInfo", JSON.stringify(data))
             setLoading(false)
 
