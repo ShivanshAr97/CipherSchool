@@ -1,9 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import Welcome from './components/Welcome';
+import Other from './components/Other';
+import Navbar from './components/Navbar';
+import Login from './components/Login';
+import Register from './components/Register';
 
 function App() {
+  // useEffect(() => {
+  //   const userInfo = localStorage.getItem("userInfo")
+
+  //   if(userInfo){
+  //     history.pushState("/")
+  //   }
+  // }, [history])
+  
   return (
     <>
-    <p className='bg-blue-400'>Lorem ipsum dolor sit.</p> 
+      <Navbar/>
+      <Login/>
+      <Register/>
+      <Welcome />
+      <Other />
     </>
   );
 }

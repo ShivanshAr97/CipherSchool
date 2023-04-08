@@ -4,7 +4,11 @@ const UserSchema = new mongoose.Schema(
   {
     username: { type: String, required: true },
     about: { type: String },
-    profilePic: { type: String },
+    profilePic: { 
+      type: String,
+      required:true,
+      default:"https://t3.ftcdn.net/jpg/03/47/83/26/360_F_347832693_jCtFtvTuYuoQn7RUxqzFEvKi63SWfzYF.jpg"
+    },
     email: { type: String, required: true },
     password: { type: String, required: true },
     links: {
